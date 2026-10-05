@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "moon-client",
+  "version": "${version}",
+  "name": "Moon Client",
+  "description": "A Meteor Client addon with a starry-night, moon-themed glass GUI.",
+  "authors": ["You"],
+  "license": "GPL-3.0-only",
+  "environment": "client",
+  "entrypoints": {
+    "meteor": ["com.moonclient.MoonClient"]
+  },
+  "custom": {
+    "meteor-client:color": "157,180,255"
+  },
+  "depends": {
+    "java": ">=25",
+    "minecraft": "~26.2",
+    "fabricloader": ">=0.19.3",
+    "fabric-api": "*",
+    "meteor-client": "*"
+  }
+}
