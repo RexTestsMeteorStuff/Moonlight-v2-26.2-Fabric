@@ -8,6 +8,7 @@
 {"uses": "actions/setup-java@v4", "with": {"distribution": "temurin", "java-version": "25"}},
 {"uses": "gradle/actions/setup-gradle@v4", "with": {"gradle-version": "9.6.1"}},
 {"name": "Build jar", "working-directory": "${{ env.PROJECT_DIR }}", "run": "gradle build --stacktrace --no-daemon"},
-{"uses": "actions/upload-artifact@v4", "with": {"name": "moon-client", "path": "${{ env.PROJECT_DIR }}/build/libs/", "if-no-files-found": "error"}}
+{"uses": "actions/upload-artifact@v4", "with": {"name": "moon-client", "path": "${{ env.PROJECT_DIR }}/build/libs/", "if-no-files-found": "error"}},
+{"name": "Attach jar to release", "if": "startsWith(github.ref, 'refs/tags/')", "uses": "softprops/action-gh-release@v2", "with": {"files": "${{ env.PROJECT_DIR }}/build/libs/*.jar"}}
 ]}}
 }
